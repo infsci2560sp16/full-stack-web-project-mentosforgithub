@@ -27,11 +27,22 @@ and open the template in the editor.
                 margin: 15px auto 0 auto;
                 text-align: center;
             }
+            body{
+                background-color: #bed194;
+                text-align:center;
+            }
+/*            .loginImage{
+                text-align:center; 
+                margin-top:20px;
+                margin-left:auto;
+                margin-right:auto;
+            }*/
         </style>
     </head>
-    <body bgcolor="#bed194">
-        <div align="center" style="margin-top:20px">
-            <img style="width:450px;height:300px;" src="logo.png" alt="webLogo">
+    <body>
+        <div id="loginImage">
+            <img style="width:450px;height:300px;margin-top:20px;
+                margin-left:auto;margin-right:auto;" src="logo.png" alt="webLogo">
         </div>
         <div style="margin-top:10px" >
             <h1 style="text-align:center">MySecret</h1>
@@ -42,8 +53,9 @@ and open the template in the editor.
                 <button type="submit">Register</button>
             </form>
             <div>
-                <p style="text-align:center">Or connect with:</p>
-                <p style="text-align:center">
+                <br>
+                <p style="text-align:center;font-size: 15px;">Or connect with:</p>
+                <p style="text-align:center;font-size:15px;">
                     <a>Facebook</a>
                     <a>Google</a>
                 </p>

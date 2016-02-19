@@ -80,7 +80,7 @@ p{
     margin-left: 200px;
 }
 
-.profile {
+.sidebar.profile {
 /*    border-radius: 50%;*/
     border:4px solid #fff;
 }
@@ -169,12 +169,11 @@ transform: rotate(2deg) translate(20px,25px) skew(20deg);
 
 }
 
-.logo {
-}
-
-
-
-
-.menu {
-
+iframe{
+    border-width:0;
+    width:800px; 
+    height:600px; 
+    /*frameborder:;*/
+/*    scrolling:no;*/
+/*    align:center;*/
 }
