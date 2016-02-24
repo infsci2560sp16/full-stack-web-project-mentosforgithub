@@ -1,0 +1,41 @@
+body{
+	background-color:#F1F8E0;
+}
+.head{
+	width:1500px;
+	height:150px;
+	color:#F3E2A9;
+	font-family:Cursive,serif;
+	text-align:center;
+	font-weight:bold;
+	font-size:45px;
+	background-image:url(images/head.jpg);
+}
+.loginbanner{
+	position:fixed;
+	left:0;
+	top:0;
+	width:500px;
+	float:right;
+	text-align:right;
+}
+.login{
+	float:left;
+	font-family:Georgia,serif;
+	text-align:center;
+}
+.signin{
+	float:left;
+	font-family:Georgia,serif;
+	text-align:center;
+}
+.comments{
+	border-style:outset;
+	font-size:12px;
+	font-family:Cursive,serif;
+}
+.msg{
+	font-family:Georgia,serif;
+	color:#FF8000;
+	font-size:18px;
+}
