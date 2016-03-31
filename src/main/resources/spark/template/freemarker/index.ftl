@@ -13,7 +13,7 @@
         
         <div id= "user1" class = "user" style="text-align: center;">         
             <img src="1.jpg" width="100" height="100" alt="userImage" class="profile">
-            <span><br>Namkiu</span>
+            <span><br>${username}</span>
         </div>
         <div class = "menu">
             <a href="personInfo.html">Person Info</a> 

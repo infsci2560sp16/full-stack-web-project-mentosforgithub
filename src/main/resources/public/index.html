@@ -24,9 +24,23 @@
     </div>
     
     <div class="container">
-        <div class="inner">
-            <p>Welcome to MySecret<p>
+        <div id = "hello" class="inner">
+            <p><p>
         </div>
     </div>
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+                <script>
+                    $(function () {
+                        $.ajax({
+                            url: "/index/hello", 
+                            success: function (result) {
+                                var hello1 = JSON.parse(result);
+                                console.log(result);
+                                $("#hello p").html(hello1.hello);
+                        }});
+                    });
+                </script>   
 </body>
 </html>

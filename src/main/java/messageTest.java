@@ -27,11 +27,16 @@ public class messageTest {
           return data;
       }, gson::toJson);
       
+        get("/index/hello", (req, res) -> {
+          Map<String, Object> data = new HashMap<>();
+          data.put("hello", "welcome");
+          return data;
+      }, gson::toJson);
+      
       
        get("/index/username", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
           data.put("username", "namkiu");
-          //data.put("you can do it", "message2");
           return data;
       }, gson::toJson);
       

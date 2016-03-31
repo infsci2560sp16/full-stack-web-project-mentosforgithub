@@ -1,3 +1,4 @@
+import com.heroku.sdk.jdbc.DatabaseUrl;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -5,7 +6,8 @@ import java.util.Map;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import com.google.gson.Gson;
+import org.primefaces.json.JSONObject;
 import static spark.Spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
@@ -40,6 +42,34 @@ public class Main {
 //
 //            return new ModelAndView(attributes, "index.html");
 //        }, new FreeMarkerEngine());
+
+
+
+    post("/signup", (req,res)->{
+        Connection con = null;
+        try{
+            con = DatabaseUrl.extract().getConnection();
+            JSONObject obj = new JSONObject(req.body());
+            String username = obj.getString("Username");
+            String email = obj.getString("Email");
+            String password = obj.getString("Password");
+            
+            String sql = "INSERT INTO usr (name,email,passwd) VALUES('"+username+"', '"+email+"','"+password+"') ";
+            con = DatabaseUrl.extract().getConnection();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS usr");
+            stmt.executeUpdate(sql);
+            
+            return req.body();
+            
+        }catch(Exception e){
+            return e.getMessage();
+        }finally{
+            
+        }
+    });
+
+
 
     get("/db", (req, res) -> {
       Connection connection = null;
