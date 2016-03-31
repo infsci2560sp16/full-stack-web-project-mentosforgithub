@@ -6,7 +6,6 @@
 
   <link rel="stylesheet" href="./stylesheets/main.css" type="text/css">
 
-
 </head>
 <body>
     <div class ="sidebar">
@@ -40,7 +39,7 @@
 
        <ul id="wrap">
 	<li>
-            <div id= "message1" class="boxCont" style="height:215px;"> <p></p></div>     
+	<div class="boxCont" style="height:215px;"></div>
 	</li>
 	<li>
 	<div class="boxCont" style="height:286px;"></div>
@@ -58,17 +57,5 @@
     </div>
     
 <script src="./js/main.js" type="text/javascript"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                <script>
-                    $(function () {
-                        $.ajax({
-                            url: "/messageBoard/message", 
-                            success: function (result) {
-                                var mes1 = JSON.parse(result);
-                                console.log(result);
-                                $("#message1 p").html(mes1.message1);
-                        }});
-                    });
-                </script>   
 </body>
 </html>

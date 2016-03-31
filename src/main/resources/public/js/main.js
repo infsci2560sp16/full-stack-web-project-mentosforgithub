@@ -9,11 +9,5 @@ $id("more_btn").onclick=function(){
         $id("wrap").innerHTML += '<li><div class="boxCont" style="height:' + height + 'px;"></div></li>';
 };
 
-var parent = document.getElementById("skillNode");
-//var child = document.getElementById("s1");
-var node = document.createElement("span");
-var textnode = document.createTextNode("SQL");
-node.appendChild(textnode);
-parent.appendChild(node);
-//parent.replaceChild(node,child);
+
 

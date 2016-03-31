@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -11,7 +12,7 @@
             <a href="index.html">MySecret</a>
         </div>
         
-        <div id= "user1" class = "user" style="text-align: center;">         
+        <div class = "user" style="text-align: center;">         
             <img src="1.jpg" width="100" height="100" alt="userImage" class="profile">
             <span><br>Namkiu</span>
         </div>
@@ -28,19 +29,5 @@
             <p>Welcome to MySecret<p>
         </div>
     </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                <script>
-                    $(function () {
-                        $.ajax({
-                            url: "/index/username", 
-                            success: function (result) {
-                                var user1 = JSON.parse(result);
-                                console.log(result);
-                                $("#user1 span").html(user1.username);
-                        }});
-                    });
-                </script>  
-
 </body>
 </html>

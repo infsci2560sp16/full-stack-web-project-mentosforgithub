@@ -22,6 +22,8 @@ public class Main {
 
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
+    
+    Object r = new messageTest();
 
 //    get("/hello", (req, res) -> {
 //          RelativisticModel.select();
@@ -46,13 +48,22 @@ public class Main {
         connection = getConnection();
 
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+//        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+//        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+//        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+//
+//        ArrayList<String> output = new ArrayList<String>();
+//        while (rs.next()) {
+//          output.add( "Read from DB: " + rs.getTimestamp("tick"));
+//        }
+
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS usr (id int,name varchar(50),email varchar(100),passwd varchar(50))");
+        //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM usr");
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
-          output.add( "Read from DB: " + rs.getTimestamp("tick"));
+          output.add( "Read from DB: " + rs.getString("name"));
         }
 
         attributes.put("results", output);
