@@ -73,7 +73,7 @@ and open the template in the editor.
                 var passwd = $("#passwd").val();
                 var confirmPwd = $("#confirmPwd").val();
                 var send = JSON.stringify({"Username":usrname,"Email":email,"Password":passwd});
-                alert(send);
+               // alert(send);
                     $.ajax({
                         contentType:'application/json',
                         url:'/signup',
