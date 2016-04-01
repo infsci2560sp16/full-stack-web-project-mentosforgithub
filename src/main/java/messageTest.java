@@ -37,7 +37,7 @@ public class messageTest {
       
        get("/index/username", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
-          data.put("username", "namkiu");
+          data.put("username", "Mengjiao");
           return new ModelAndView(data, "index.ftl");
 
       }, gson::toJson);
