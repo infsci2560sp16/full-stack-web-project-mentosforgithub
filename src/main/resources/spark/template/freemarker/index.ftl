@@ -8,7 +8,7 @@
 <body>
     <div class ="sidebar">
         <div class ="logo">
-            <a href="index.ftl">MySecret</a>
+            <a href="/index.ftl">MySecret</a>
         </div>
         
         <div id= "user1" class = "user" style="text-align: center;">         
