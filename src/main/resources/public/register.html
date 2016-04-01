@@ -51,7 +51,7 @@ and open the template in the editor.
                 <input id = "email" type ="text" name ="email" placeholder="Emailaddress"><br>
                 <input id="passwd" type="password" name="password" placeholder="Password"><br>
                 <input id = "confirmPwd" type="password" name="confirmPwd" placeholder="confirmPwd"><br>
-                <button type="submit">Login</button>
+<!--                <button type="submit">Login</button>-->
                 <button id ="signup" type="submit">Register</button>
             </form>
             <div>
@@ -73,7 +73,7 @@ and open the template in the editor.
                 var passwd = $("#passwd").val();
                 var confirmPwd = $("#confirmPwd").val();
                 var send = JSON.stringify({"Username":usrname,"Email":email,"Password":passwd});
-               // alert(send);
+                alert(send);
                     $.ajax({
                         contentType:'application/json',
                         url:'/signup',
