@@ -6,6 +6,7 @@
 import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
+import spark.ModelAndView;
 import static spark.Spark.get;
 /**
  *
@@ -37,7 +38,8 @@ public class messageTest {
        get("/index/username", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
           data.put("username", "namkiu");
-          return data;
+          return new ModelAndView(data, "index.ftl");
+
       }, gson::toJson);
       
       
