@@ -29,18 +29,6 @@
         </div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                <script>
-                    $(function () {
-                        $.ajax({
-                            url: "/index/username", 
-                            success: function (result) {
-                                var user1 = JSON.parse(result);
-                                console.log(result);
-                                $("#user1 span").html(user1.username);
-                        }});
-                    });
-                </script>  
 
 </body>
 </html>
