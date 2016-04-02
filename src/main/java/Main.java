@@ -16,7 +16,33 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 public class Main {
 
   public static void main(String[] args) {
-
+    Configuration config = new Configuration();  
+        try {  
+            String path = new File("").getAbsolutePath();  
+            config.setDirectoryForTemplateLoading(new File(path));  
+            config.setObjectWrapper(new DefaultObjectWrapper());  
+              
+            Template template = config.getTemplate("sight.ftl","UTF-8");  
+            //create the template
+            Map root = new HashMap();  
+            List<Comments_cmu> comments_cmu = new ArrayList<Comments_cmu>();  
+            Comments_cmu c1 = new Comments_cmu();  
+            c1.setUser("Alex");  
+            u1.setComment("I like this place.");  
+            comments_cmu.add(c1);  
+			
+            Comments_cmu c2 = new Comments_cmu();  
+            c2.setUser("Boris");  
+            c2.setComment("This is a famous university.");  
+            comments_cmu.add(c2); 
+              
+            root.put("commentsList", comments_cmu);  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }
+  /***ftl_code**/
+    
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
 
