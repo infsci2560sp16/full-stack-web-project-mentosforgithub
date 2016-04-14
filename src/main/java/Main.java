@@ -71,6 +71,53 @@ public class Main {
     });
 
 
+    //GET XML
+      get("api/moodblog", (req, res) -> {
+
+          Connection connection = null;
+          // res.type("application/xml"); //Return as XML
+          Map<String, Object> attributes = new HashMap<>();
+          
+          try {
+              //Connect to Database and execute SQL Query
+              connection = DatabaseUrl.extract().getConnection();
+              Statement stmt = connection.createStatement();
+              ResultSet rs = stmt.executeQuery("SELECT * FROM Moodblog");
+
+
+              String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+              xml += "<moodblog>";
+              while (rs.next()) {
+                xml += "<moods>";
+			xml += "<id>"+rs.getInt("id")+"</id>";
+			xml += "<username>"+rs.getString("name")+"</username>";
+                        xml += "<year>"+rs.getInt("year")+"</year>";
+                        xml += "<month>"+rs.getInt("month")+"</month>";
+                        xml += "<day>"+rs.getInt("day")+"</day>";
+                        xml += "<weather>"+rs.getString("weather")+"</weather>";
+                        xml += "<location>"+rs.getString("location")+"</location>";
+                        xml += "<event>"+rs.getString("event")+"</event>";
+                        xml += "<withWho>"+rs.getString("withWho")+"</withWho>";
+                        xml += "<mood>"+rs.getString("mood")+"</mood>";
+						
+                xml += "</moods>";
+              }
+              xml += "</moodblog>";
+              res.type("text/xml");
+              return xml;
+
+          } catch (Exception e) {
+              attributes.put("message", "There was an error: " + e);
+              return attributes;
+          } finally {
+              if (connection != null) 
+                  try{
+                      connection.close();
+                  } 
+                  catch(SQLException e){}
+          }
+        });//End api/moodblog
+    
 
     get("/db", (req, res) -> {
       Connection connection = null;
@@ -95,6 +142,7 @@ public class Main {
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
           output.add( "Read from DB: " + rs.getString("name"));
+          //output.add( "Read from DB: " + rs.getString("passwd"));
         }
 
         attributes.put("results", output);

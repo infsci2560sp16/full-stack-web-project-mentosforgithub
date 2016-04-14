@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import spark.ModelAndView;
 import static spark.Spark.get;
+import spark.template.freemarker.FreeMarkerEngine;
 /**
  *
  * @author Mengjiao
@@ -35,12 +36,12 @@ public class messageTest {
       }, gson::toJson);
       
       
-       get("/index/username", (req, res) -> {
+       get("/index", (request, response) -> {
           Map<String, Object> data = new HashMap<>();
           data.put("username", "Mengjiao");
           return new ModelAndView(data, "index.ftl");
 
-      }, gson::toJson);
+      }, new FreeMarkerEngine());
       
       
       
