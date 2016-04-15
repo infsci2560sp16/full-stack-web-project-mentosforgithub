@@ -27,25 +27,25 @@
     <div class="container">
         <div class="inner">
             <p>Welcome to MySecret<p>
-            <h3><br/>Recommended Topics for ${dayOfWeek}</a></h3>
+            <h3><a href="/#"><br/>Recommended Topics for ${dayOfWeek}</a></h3>
 
-        <#if dayOfWeek == "Monday"|| dayOfWeek == "Wednesday"|| dayOfWeek == "Friday">
+            <#if dayOfWeek == "Monday"|| dayOfWeek == "Wednesday"|| dayOfWeek == "Friday">
 
-        <#list 0..oddtopics?size-1 as i>
-        <h4>${eventopics[i]}</h4>
-        </#list>
+            <#list 0..oddtopics?size-1 as i>
+                <h4>${eventopics[i]}</h4>
+                </#list>
 
-       <#elseif dayOfWeek == "Tuesday"|| dayOfWeek == "Thursday">
-       <#list 0..oddtopics?size-1 as i>
-       <h4>${oddtopics[i]}</h4>
-       </#list>
+                <#elseif dayOfWeek == "Tuesday"|| dayOfWeek == "Thursday">
+                <#list 0..oddtopics?size-1 as i>
+                <h4>${oddtopics[i]}</h4>
+            </#list>
 
         <#else>
-        <#list 0..oddtopics?size-1 as i>
-        <h4>${weektopics[i]}</h4>
-        </#list>
+            <#list 0..oddtopics?size-1 as i>
+            <h4>${weektopics[i]}</h4>
+            </#list>
         
-        </#if>
+            </#if>
         </div>
     </div>
 
