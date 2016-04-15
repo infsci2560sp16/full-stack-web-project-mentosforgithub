@@ -72,7 +72,7 @@ public class Main {
 
 
     //GET XML
-      get("api/moodblog", (req, res) -> {
+      get("/api/moodblog", (req, res) -> {
 
           Connection connection = null;
           // res.type("application/xml"); //Return as XML
@@ -126,14 +126,6 @@ public class Main {
         connection = getConnection();
 
         Statement stmt = connection.createStatement();
-//        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-//        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-//        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-//
-//        ArrayList<String> output = new ArrayList<String>();
-//        while (rs.next()) {
-//          output.add( "Read from DB: " + rs.getTimestamp("tick"));
-//        }
 
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Usr (id int,name varchar(50),email varchar(100),passwd varchar(50))");
         //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
