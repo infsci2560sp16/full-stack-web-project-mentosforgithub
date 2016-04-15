@@ -138,18 +138,7 @@ public class Main {
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS usr (id int,name varchar(50),email varchar(100),passwd varchar(50))");
         //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
         
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Moodblog(" +
-"id int," +
-"name varchar(50)," +
-"year int," +
-"month int," +
-"day int," +
-"weather varchar(500)," +
-"location varchar(100)," +
-"event varchar(500)," +
-"withWho varchar(500)," +
-"mood varchar(500)," +
-")");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Moodblog(id int,name varchar(50),year int,month int,day int,weather varchar(500),location varchar(100),event varchar(500),withWho varchar(500),mood varchar(500))");
         
         ResultSet rs = stmt.executeQuery("SELECT * FROM usr");
 
