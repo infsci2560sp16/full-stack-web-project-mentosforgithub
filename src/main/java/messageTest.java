@@ -25,18 +25,20 @@ public class messageTest {
       get("/messageBoard/message", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
           data.put("message1", "goodluck");
-          //data.put("you can do it", "message2");
+          data.put("message2","you can do it");
+          data.put("message3","carry on");
+          data.put("message4","relax");
           return data;
       }, gson::toJson);
       
         get("/index/hello", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
-          data.put("hello", "welcome");
+          data.put("hello", "welcome to MySecret index.html");
           return data;
       }, gson::toJson);
       
       
-       get("/index", (request, response) -> {
+       get("/", (request, response) -> {
           Map<String, Object> data = new HashMap<>();
           data.put("username", "Mengjiao");
           return new ModelAndView(data, "index.ftl");

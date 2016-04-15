@@ -43,13 +43,13 @@
             <div id= "message1" class="boxCont" style="height:215px;"> <p></p></div>     
 	</li>
 	<li>
-	<div class="boxCont" style="height:286px;"></div>
+	<div id="message2" class="boxCont" style="height:286px;"><p></p></div>
 	</li>
 	<li>
-	<div class="boxCont" style="height:240px;"></div>
+	<div id="message3" class="boxCont" style="height:240px;"><p></p></div>
 	</li>
         <li>
-	<div class="boxCont" style="height:180px;"></div>
+	<div id="message4" class="boxCont" style="height:180px;"><p></p></div>
 	</li>
 
 </ul>             
@@ -67,6 +67,9 @@
                                 var mes1 = JSON.parse(result);
                                 console.log(result);
                                 $("#message1 p").html(mes1.message1);
+                                $("#message2 p").html(mes1.message2);
+                                $("#message3 p").html(mes1.message3);
+                                $("#message4 p").html(mes1.message4);
                         }});
                     });
                 </script>   
