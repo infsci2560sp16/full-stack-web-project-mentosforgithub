@@ -140,12 +140,12 @@ public class Main {
         
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS moodblog(id int,name varchar(50),year int,month int,day int,weather varchar(500),location varchar(100),event varchar(500),withWho varchar(500),mood varchar(500))");
         
-        ResultSet rs = stmt.executeQuery("SELECT * FROM usr");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM moodblog");
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
           output.add( "Read from DB: " + rs.getString("name"));
-          //output.add( "Read from DB: " + rs.getString("passwd"));
+          output.add( "Read from DB: " + rs.getString("mood"));
         }
 
         attributes.put("results", output);
