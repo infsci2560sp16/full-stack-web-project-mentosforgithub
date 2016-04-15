@@ -55,10 +55,10 @@ public class Main {
             String email = obj.getString("Email");
             String password = obj.getString("Password");
             
-            String sql = "INSERT INTO usr (name,email,passwd) VALUES('"+username+"', '"+email+"','"+password+"') ";
+            String sql = "INSERT INTO Usr (name,email,passwd) VALUES('"+username+"', '"+email+"','"+password+"') ";
             con = DatabaseUrl.extract().getConnection();
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS usr");
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Usr");
             stmt.executeUpdate(sql);
             
             return req.body();
@@ -82,7 +82,7 @@ public class Main {
               //Connect to Database and execute SQL Query
               connection = DatabaseUrl.extract().getConnection();
               Statement stmt = connection.createStatement();
-              ResultSet rs = stmt.executeQuery("SELECT * FROM Moodblog");
+              ResultSet rs = stmt.executeQuery("SELECT * FROM moodblog");
 
 
               String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
@@ -135,10 +135,10 @@ public class Main {
 //          output.add( "Read from DB: " + rs.getTimestamp("tick"));
 //        }
 
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS usr (id int,name varchar(50),email varchar(100),passwd varchar(50))");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Usr (id int,name varchar(50),email varchar(100),passwd varchar(50))");
         //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
         
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Moodblog(id int,name varchar(50),year int,month int,day int,weather varchar(500),location varchar(100),event varchar(500),withWho varchar(500),mood varchar(500))");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS moodblog(id int,name varchar(50),year int,month int,day int,weather varchar(500),location varchar(100),event varchar(500),withWho varchar(500),mood varchar(500))");
         
         ResultSet rs = stmt.executeQuery("SELECT * FROM usr");
 
