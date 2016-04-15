@@ -24,10 +24,10 @@ public class messageTest {
     private void setMessages() {
       get("/messageBoard/message", (req, res) -> {
           Map<String, Object> data = new HashMap<>();
-          data.put("message1", "goodluck");
-          data.put("message2","you can do it");
-          data.put("message3","carry on");
-          data.put("message4","relax");
+          data.put("message1", "  goodluck");
+          data.put("message2","  you can do it");
+          data.put("message3","  carry on");
+          data.put("message4","  relax");
           return data;
       }, gson::toJson);
       
