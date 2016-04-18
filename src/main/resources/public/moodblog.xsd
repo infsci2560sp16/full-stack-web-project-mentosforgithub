@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+<xs:element name="moodblog">
+      <xs:complexType>
+      <xs:sequence>
+        <xs:element name="moods" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "50"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="weather">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "40"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="location">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "100"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="event">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "500"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="withWho">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "100"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="title">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "50"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+              <xs:element name="mood">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    <xs:maxLength value = "100"/>
+                    </xs:restriction>
+                  </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
