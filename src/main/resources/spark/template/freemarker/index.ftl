@@ -27,7 +27,8 @@
     <div class="container">
         <div class="inner">
             <p>Welcome to MySecret<p>
-            <h3><br/>Recommended foods for ${dayOfWeek}</a></h3>
+            <p style="text-align: center;">what to eat is big problem!</p>
+            <h2 style="text-align: center;"><br/>Recommended foods for ${dayOfWeek}</a></h2>
 
             <#if dayOfWeek == "Monday"|| dayOfWeek == "Wednesday"|| dayOfWeek == "Friday">
 
