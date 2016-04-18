@@ -8,16 +8,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-//import org.primefaces.json.JSONObject;
 import static spark.Spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
 import static spark.Spark.get;
-
-//import static javax.measure.unit.SI.KILOGRAM;
-//import javax.measure.quantity.Mass;
-//import org.jscience.physics.model.RelativisticModel;
-//import org.jscience.physics.amount.Amount;
 
 public class Main {
 
@@ -27,23 +21,6 @@ public class Main {
     staticFileLocation("/public");
     
     Object r = new messageTest();
-
-//    get("/hello", (req, res) -> {
-//          RelativisticModel.select();
-//          
-//          String energy = System.getenv().get("ENERGY");
-//          
-//          Amount<Mass> m = Amount.valueOf("energy").to(KILOGRAM);
-//          return "E=mc^2: " + energy + " = " + m.toString();
-//        });
-
-//    get("/", (request, response) -> {
-//            Map<String, Object> attributes = new HashMap<>();
-//            attributes.put("message", "Hello World!");
-//
-//            return new ModelAndView(attributes, "index.html");
-//        }, new FreeMarkerEngine());
-
 
 
     post("/signup", (req,res)->{

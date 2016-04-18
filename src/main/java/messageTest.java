@@ -48,19 +48,20 @@ public class messageTest {
           Map<String, Object> attributes = new HashMap<>();
 
             ArrayList<String> oddtopics = new ArrayList<String>();
-            oddtopics.add("Animal");
-            oddtopics.add("Beauty");
-            oddtopics.add("Books");
-            oddtopics.add("Television");
+
+            oddtopics.add("hamburger");
+            oddtopics.add("salad");
+            oddtopics.add("fruit");
             ArrayList<String> eventopics = new ArrayList<String>();
-            eventopics.add("Culture");
-            eventopics.add("Music");
-            eventopics.add("Technology");
+            eventopics.add("Chinese food");
+            eventopics.add("hot pot");
+            eventopics.add("chuancai");
             ArrayList<String> weektopics = new ArrayList<String>();
-            weektopics.add("Cooking");
-            weektopics.add("Movies");
-            weektopics.add("Sports");
-            weektopics.add("Travel");
+            weektopics.add("pizza");
+            weektopics.add("ice cream");
+            weektopics.add("India food");
+            weektopics.add("steak");
+            weektopics.add("French cuisine");
 
             SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
             String dayOfWeek = formatter.format(new Date());
