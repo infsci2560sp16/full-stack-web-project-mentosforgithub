@@ -27,23 +27,26 @@
     <div class="container">
         <div class="inner">
             <p>Welcome to MySecret<p>
+            <br>
+            <br>
+            <br>
             <p style="text-align: center;">what to eat is big problem!</p>
-            <h2 style="text-align: center;"><br/>Recommended foods for ${dayOfWeek}</a></h2>
+            <h2 style="text-align: center;"><br/>Recommended foods for ${dayOfWeek}</h2>
 
             <#if dayOfWeek == "Monday"|| dayOfWeek == "Wednesday"|| dayOfWeek == "Friday">
 
             <#list 0..oddtopics?size-1 as i>
-                <h4>${eventopics[i]}</h4>
+                <h3 style="text-align: center;">${eventopics[i]}</h3>
                 </#list>
 
                 <#elseif dayOfWeek == "Tuesday"|| dayOfWeek == "Thursday">
                 <#list 0..oddtopics?size-1 as i>
-                <h4>${oddtopics[i]}</h4>
+                <h3 style="text-align: center;">${oddtopics[i]}</h3>
             </#list>
 
         <#else>
             <#list 0..oddtopics?size-1 as i>
-            <h4>${weektopics[i]}</h4>
+            <h3 style="text-align: center;">${weektopics[i]}</h3>
             </#list>
         
             </#if>
