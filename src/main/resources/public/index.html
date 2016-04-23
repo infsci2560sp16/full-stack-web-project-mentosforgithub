@@ -1,46 +1,31 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title> MySecret </title>
-  <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
-</head>
-<body>
-    <div class ="sidebar">
-        <div class ="logo">
-            <a href="/">MySecret</a>
+    <head>
+        <title>Small Lights</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="head"><h1>Small Lights</h1></div>
+		
+        <div class="login_banner">
+            <div class ="login"><input type="submit" value="log in" name="login_1" /></div>
+            <div class="signin"><input type="submit" value="sign in" name="signin_1" /></div>
         </div>
-        
-        <div class = "user" style="text-align: center;">         
-            <img src="1.jpg" width="100" height="100" alt="userImage" class="profile">
-            <span><br>Namkiu</span>
+        <br>
+		<br>
+		
+        <div class="icon">
+            <input type="radio" name="sights" value="icon" id="sights"/>sights<img id ="home_s" src="images/sights.jpg" alt="sights" width=300 height=300 onclick="location='sights.html'">
+            <input type="radio" name="restaurants" value="icon" id="restaurants"/>restaurants<img id ="home_r" src="images/restaurants.jpg" alt="restaurants" width=300 height=300 onclick="location='restaurants.html'">
+            <input type="radio" name="bars" value="icon" id="bars"/>bars<img id ="home_b" src="images/bars.jpg" alt="bars" width=300 height=300 onclick="location='bars.html'">
+            <input type="radio" name="others" value="icon" id="others"/>others<img id ="home_o" src="images/others.jpg" alt="others" width=300 height=300 onclick="location='others.html'">
         </div>
-        <div class = "menu">
-            <a href="personInfo.html">Person Info</a> 
-            <a href="blog.html">Blog</a>  
-            <a href="schedule.html">Schedule</a>
-            <a href="messageBoard.html">Message Board</a>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div id = "hello" class="inner">
-            <p>
-        </div>
-    </div>
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                <script>
-                    $(function () {
-                        $.ajax({
-                            url: "/index/hello", 
-                            success: function (result) {
-                                var hello1 = JSON.parse(result);
-                                console.log(result);
-                                $("#hello p").html(hello1.hello);
-                        }});
-                    });
-                </script>   
-</body>
+    </body>
 </html>
