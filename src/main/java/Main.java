@@ -20,81 +20,9 @@ public class Main {
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
     
-    Object r = new messageTest();
 
 
-    post("/signup", (req,res)->{
-        Connection con = null;
-        try{
-            con = DatabaseUrl.extract().getConnection();
-            JSONObject obj = new JSONObject(req.body());
-            String username = obj.getString("Username");
-            String email = obj.getString("Email");
-            String password = obj.getString("Password");
-            
-            String sql = "INSERT INTO Usr (name,email,passwd) VALUES('"+username+"', '"+email+"','"+password+"') ";
-            con = DatabaseUrl.extract().getConnection();
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Usr");
-            stmt.executeUpdate(sql);
-            
-            return req.body();
-            
-        }catch(Exception e){
-            return e.getMessage();
-        }finally{
-            
-        }
-    });
-
-
-    //GET XML
-      get("/api/moodblog", (req, res) -> {
-
-          Connection connection = null;
-          // res.type("application/xml"); //Return as XML
-          Map<String, Object> attributes = new HashMap<>();
-          
-          try {
-              //Connect to Database and execute SQL Query
-              connection = DatabaseUrl.extract().getConnection();
-              Statement stmt = connection.createStatement();
-              ResultSet rs = stmt.executeQuery("SELECT * FROM moodblog");
-
-
-              String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-              xml += "<moodblog>";
-              while (rs.next()) {
-                xml += "<moods>";
-			xml += "<id>"+rs.getInt("id")+"</id>";
-			xml += "<username>"+rs.getString("name")+"</username>";
-                        xml += "<year>"+rs.getInt("year")+"</year>";
-                        xml += "<month>"+rs.getInt("month")+"</month>";
-                        xml += "<day>"+rs.getInt("day")+"</day>";
-                        xml += "<weather>"+rs.getString("weather")+"</weather>";
-                        xml += "<location>"+rs.getString("location")+"</location>";
-                        xml += "<event>"+rs.getString("event")+"</event>";
-                        xml += "<withWho>"+rs.getString("withWho")+"</withWho>";
-                        xml += "<mood>"+rs.getString("mood")+"</mood>";
-						
-                xml += "</moods>";
-              }
-              xml += "</moodblog>";
-              res.type("text/xml");
-              return xml;
-
-          } catch (Exception e) {
-              attributes.put("message", "There was an error: " + e);
-              return attributes;
-          } finally {
-              if (connection != null) 
-                  try{
-                      connection.close();
-                  } 
-                  catch(SQLException e){}
-          }
-        });//End api/moodblog
-    
+   
 
     get("/db", (req, res) -> {
       Connection connection = null;
