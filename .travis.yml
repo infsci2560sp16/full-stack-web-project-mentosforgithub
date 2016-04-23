@@ -2,3 +2,7 @@ sudo: required
 language: java
 jdk:
 - oraclejdk8
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY #stored in travis-ci
+  app: young-refuge-1523  #matches heroku app name
