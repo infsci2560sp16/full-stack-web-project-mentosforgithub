@@ -36,7 +36,7 @@ get("/db", (req, res) -> {
         connection = DatabaseUrl.extract().getConnection();
 
         Statement stmt = connection.createStatement();
-		stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Login (id int, username varchar(50),password varchar(50)");
+	stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Login (id int, username varchar(50),password varchar(50)");
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments_cmu (id int, username varchar(50),comments varchar(500)");
         //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 		
