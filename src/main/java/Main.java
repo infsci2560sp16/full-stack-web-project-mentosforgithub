@@ -29,20 +29,24 @@ public class Main {
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());**/
 
-    get("/db", (req, res) -> {
+get("/db", (req, res) -> {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
       try {
         connection = DatabaseUrl.extract().getConnection();
 
         Statement stmt = connection.createStatement();
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+		stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Login (id int, username varchar(50),passwd varchar(50)");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments_cmu (id int, username varchar(50),comments varchar(500)");
+        //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+		
+        ResultSet rs = stmt.executeQuery("SELECT * FROM Comments_cmu");
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
-          output.add( "Read from DB: " + rs.getTimestamp("tick"));
+          output.add( "Read from DB: " + rs.getTimestamp("id"));
+		  output.add( "Read from DB: " + rs.getTimestamp("username"));
+		  output.add( "Read from DB: " + rs.getTimestamp("comments"));
         }
 
         attributes.put("results", output);
