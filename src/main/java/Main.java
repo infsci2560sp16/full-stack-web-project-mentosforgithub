@@ -28,6 +28,7 @@ public class Main {
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());**/
+        
 post("/signin", (req,res)->{
         Connection con = null;
         try{
@@ -47,7 +48,7 @@ post("/signin", (req,res)->{
         }catch(Exception e){
             return e.getMessage();
         }finally{
-            
+           if (connection != null) try{connection.close();} catch(SQLException e){} 
         }
     });
     
