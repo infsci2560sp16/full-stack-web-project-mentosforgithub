@@ -29,6 +29,7 @@ public class Main {
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());**/
         
+ //JSON,post       
 post("/signin", (req,res)->{
         Connection con = null;
         try{
@@ -52,6 +53,40 @@ post("/signin", (req,res)->{
         }
     });
     
+//XML,get
+get("/api/comments", (req, res) -> {
+		  
+          Connection connection = null;
+
+          Map<String, Object> attributes = new HashMap<>();
+          try {
+              connection = DatabaseUrl.extract().getConnection();
+              Statement stmt = connection.createStatement();
+              ResultSet rs = stmt.executeQuery("SELECT title,username,threads.planguage,threads.topic,description FROM users,threads WHERE users.email=threads.email");
+
+
+              String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+              xml += "<comments>";//use comments.xsd
+              while (rs.next()) {
+				  xml += "<username>"+rs.getString("username")+"</username>";
+				  xml += "<date>"+rs.getString("date")+"</date>";
+				  xml += "<content>"
+					xml += "<comment_text>"+rs.getString("comment_text")+"</comment_text>";
+					xml += "<grade>"+rs.getString("grade")+"</grade>";
+				  xml += "</content>";
+              }
+              xml += "</comments>";
+              res.type("text/xml");
+              return xml;
+
+          } catch (Exception e) {
+              attributes.put("message", "There was an error: " + e);
+              return attributes;
+          } finally {
+              if (connection != null) try{connection.close();} catch(SQLException e){}
+          }
+        });
+//db    
 get("/db", (req, res) -> {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
