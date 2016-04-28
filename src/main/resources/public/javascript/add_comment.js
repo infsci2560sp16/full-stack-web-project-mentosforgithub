@@ -8,7 +8,7 @@ function add_comment()
       $.ajax({
           contentType:'application/json',
           url:"/addcomment",
-          type:"post",
+          type:"POST",
           datatype: "json",
           data: send,
           success: function(data)

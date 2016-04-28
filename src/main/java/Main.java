@@ -93,7 +93,7 @@ post("/addcomment", (req, res) ->
 		return e.getMessage();
      } finally {
      if (connection != null) try{connection.close();} catch(SQLException e){}
-    }}, new FreeMarkerEngine()); 
+    }}/*, new FreeMarkerEngine()*/); 
     
 /**JSON,get,unfinised
  get("/login", (req, res) ->
