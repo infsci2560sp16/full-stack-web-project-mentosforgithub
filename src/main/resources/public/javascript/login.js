@@ -1,5 +1,4 @@
-$(document).ready(function(){
-  $('#signin').click(function()
+ $('#signin').click(function()
   {
         var username = document.getElementById("login_username").value;
         var password = document.getElementById("login_password").value;
@@ -19,4 +18,3 @@ $(document).ready(function(){
         });
     }
   );
-});
