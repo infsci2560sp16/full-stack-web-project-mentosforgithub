@@ -31,7 +31,6 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:attribute name="recommend" type="xs:boolean"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
