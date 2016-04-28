@@ -1,4 +1,4 @@
-function sign_in()
+function log_in()
   {
         var username = document.getElementById("login_username").value;
         var password = document.getElementById("login_password").value;
