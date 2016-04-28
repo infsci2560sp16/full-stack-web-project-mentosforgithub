@@ -143,12 +143,12 @@ get("/api/comments", (req, res) -> {
               String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
               xml += "<comments>";//use comments.xsd
               while (rs.next()) {
-              	xml+= "<comment>"
+              	xml+= "<comment>";
 				  	xml += "<username>"+rs.getString("username")+"</username>";
 				  	xml += "<date>"+rs.getString("date")+"</date>";
 					xml += "<comment_text>"+rs.getString("comment_text")+"</comment_text>";
 					xml += "<grade>"+rs.getString("grade")+"</grade>";
-				xml+= "</comment>"
+				xml+= "</comment>";
               }
               xml += "</comments>";
               res.type("text/xml");
