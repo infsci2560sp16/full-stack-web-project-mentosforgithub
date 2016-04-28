@@ -65,7 +65,7 @@ post("/signin", (req,res)->{
         }catch(Exception e){
             return e.getMessage();
         }finally{
-           if (connection != null) try{connection.close();} catch(SQLException e){} 
+           if (con != null) try{con.close();} catch(SQLException e){} 
         }
     });
 //JSON,get
