@@ -13,7 +13,7 @@ $(document).ready(function(){
           data: send,
           success: function(data)
           {
-            alert("succeeded");
+            alert("You have successfully signed in");
             window.location.href='/index.html';
          }
         });
