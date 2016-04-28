@@ -134,6 +134,7 @@ get("/api/comments", (req, res) -> {
         });
         
 //ftl restaurants
+Configuration config = new Configuration(); 
 try {  
             String path = new File("").getAbsolutePath();  
             config.setDirectoryForTemplateLoading(new File(path));  
