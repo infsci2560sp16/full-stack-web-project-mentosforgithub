@@ -62,7 +62,7 @@ get("/api/comments", (req, res) -> {
           try {
               connection = DatabaseUrl.extract().getConnection();
               Statement stmt = connection.createStatement();
-              ResultSet rs = stmt.executeQuery("SELECT title,username,threads.planguage,threads.topic,description FROM users,threads WHERE users.email=threads.email");
+              ResultSet rs = stmt.executeQuery("SELECT * FROM comments");
 
 
               String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
@@ -95,7 +95,7 @@ get("/db", (req, res) -> {
 
         Statement stmt = connection.createStatement();
 	stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Users (username varchar(50),password varchar(50)");
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments_cmu (username varchar(50),comments varchar(500)");
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments (username varchar(50),date datetime DEFAULT GETDATE(),comment_text varchar(500),grade decimal(5,2)");
         //stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
 		
         ResultSet rs = stmt.executeQuery("SELECT * FROM Comments_cmu");
