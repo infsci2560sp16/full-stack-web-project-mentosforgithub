@@ -5,34 +5,40 @@
 <xs:element name="comments">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="username">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:length value="50"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>			
-			<xs:element name="date" type="xs:date"/>
-			<xs:element name="content">
-				<xs:complexType>
+			<xs:element name="comment">
+				<xs:complecType>
 					<xs:sequence>
-						<xs:element name="comment_text">
+						<xs:element name="username">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:length value="300"/>
+									<xs:length value="50"/>
 								</xs:restriction>
 							</xs:simpleType>
-						</xs:element>
-						<xs:element name="grade">
-							<xs:simpleType>
-								<xs:restriction base="xs:decimal">
-									<xs:minInclusive value="0.0"/>
-									<xs:maxInclusive value="5.0"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						</xs:element>			
+						<xs:element name="date" type="xs:date"></xs:element>
+						<xs:element name="content">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="comment_text">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:length value="300"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="grade">
+										<xs:simpleType>
+											<xs:restriction base="xs:decimal">
+												<xs:minInclusive value="0.0"/>
+												<xs:maxInclusive value="5.0"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>	
 					</xs:sequence>
-				</xs:complexType>
+				</xs:complecType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
