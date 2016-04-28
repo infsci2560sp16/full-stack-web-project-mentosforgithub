@@ -80,7 +80,7 @@ post("/signin", (req,res)->{
 	  
 	  int grade = Integer.parseInt(grade1);
 	  
-      Map<String, Object> attributes = new HashMap<>();
+      //Map<String, Object> attributes = new HashMap<>();
       try{
       connection = DatabaseUrl.extract().getConnection();
 
@@ -91,13 +91,12 @@ post("/signin", (req,res)->{
 	  
 	  return req.body();
 	  }catch (Exception e) {
-     attributes.put("message", "There was an error: " + e);
-     return new ModelAndView(attributes, "error.ftl");
+		return e.getMessage();
      } finally {
      if (connection != null) try{connection.close();} catch(SQLException e){}
     }}, new FreeMarkerEngine()); 
     
-//JSON,get,unfinised
+/**JSON,get,unfinised
  get("/login", (req, res) ->
     {
       Connection connection = null;
@@ -126,7 +125,7 @@ post("/signin", (req,res)->{
      return new ModelAndView(attributes, "error.ftl");
      } finally {
      if (connection != null) try{connection.close();} catch(SQLException e){}
-    }}, new FreeMarkerEngine()); 
+    }}, new FreeMarkerEngine()); **/
     
 //XML,get
 get("/api/comments", (req, res) -> {
