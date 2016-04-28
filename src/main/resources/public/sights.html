@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Small Lights</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="javascript/script.js"></script>
+		<script type="text/javascript" src="javascript/showmore.js"></script>
+    </head>
+    <body>
+        <div class="head"><h1>Small Lights</h1></div>
+		
+        <div class="login_banner">
+            <div class ="login"><button onclick="{if(confirm('Are you sure to log in?')) location.href='login.html'}">LOG IN</div>
+            <div class="signin"><button onclick="{if(confirm('Are you sure to sign in?')) location.href='signin.html'}">SIGN IN</div>
+        </div>
+        <br>
+		<br>
+        
+        <div class="current_s">
+            <div class="cmu">
+                <input type="radio" name="cmu" value="icon" id="CMU"/>Carneige Mellon University<img id ="cmu" src="images/sights/cmu.jpg" width=200 height=170 alt="cmu" >
+                <br>
+                <div class="button"><input type="submit" value="comment" name="comment" onclick="cmu_comment()"/></div>
+                <div class="comments">
+				<div id="cmu_comments">
+                    <ol>
+                        <li><p>A wonderful place!</p></li>
+                    </ol>
+					<input type="submit" value="show more comments" name="show_more" onclick="show_more()"/>
+                </div>
+				</div>
+            </div>
+			
+			<div class="send_comments">
+				<form>
+					<input type="text" name="username" id="comment_cmu_username" placeholder="input your username"><br>
+					<input type="text" name="comment_text" id="comment_text" placeholder="input your comment"><br>
+					<input type="text" name="grade" id="grade" placeholder="only intergers from 0-5"><br>
+					<input type="submit" id="cmu_comment_OK" onclick="add_comment()">OK</input>
+					<button type="reset" id="cmu_comment_cancel"> Cancel</button>
+				</form>
+			</div>
+			
+        </div>
+        <br>
+		
+        <div class="back_home"><a href="index.html">Click here to back to home page!</a></div>
+    </body>
+</html>
