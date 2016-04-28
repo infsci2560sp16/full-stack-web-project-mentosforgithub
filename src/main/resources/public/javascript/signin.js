@@ -1,5 +1,4 @@
-$(document).ready(function(){
-  $('#signin').click(function()
+function sign_in()
   {
         var username = document.getElementById("sign_username").value;
         var password = document.getElementById("sign_password").value;
@@ -18,5 +17,4 @@ $(document).ready(function(){
          }
         });
     }
-  );
-});
+
