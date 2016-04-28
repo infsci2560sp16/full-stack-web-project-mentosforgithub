@@ -105,10 +105,8 @@ get("/api/comments", (req, res) -> {
               			  xml+= "<comment>"
 				  	xml += "<username>"+rs.getString("username")+"</username>";
 				  	xml += "<date>"+rs.getString("date")+"</date>";
-				  	xml += "<content>"
-						xml += "<comment_text>"+rs.getString("comment_text")+"</comment_text>";
-						xml += "<grade>"+rs.getString("grade")+"</grade>";
-				  	xml += "</content>";
+					xml += "<comment_text>"+rs.getString("comment_text")+"</comment_text>";
+					xml += "<grade>"+rs.getString("grade")+"</grade>";
 				  xml+= "</comment>"
               }
               xml += "</comments>";
