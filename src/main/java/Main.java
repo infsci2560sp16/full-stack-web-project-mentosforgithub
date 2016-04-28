@@ -52,6 +52,36 @@ post("/signin", (req,res)->{
            if (connection != null) try{connection.close();} catch(SQLException e){} 
         }
     });
+//JSON,get,unfinised
+ get("/login", (req, res) ->
+    {
+      Connection connection = null;
+	  
+	  JSONObject user = new JSONObject(req.body());//Use JSON to convey the message in signin
+      String username = user.getString("username");
+      String password = user.getString("password");
+	  
+      Map<String, Object> attributes = new HashMap<>();
+      try{
+      connection = DatabaseUrl.extract().getConnection();
+
+      Statement stmt = connection.createStatement();
+
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Users (username varchar(50),password varchar(50)");
+	  ResultSet rs = stmt.executeQuery("SELECT password FROM Users WHERE username ="+username);
+	  String passwd = rs.getString("username");
+	  
+	  if(password.equals(passwd)) {
+		  
+	  }
+	  else{
+	  }
+	  }catch (Exception e) {
+     attributes.put("message", "There was an error: " + e);
+     return new ModelAndView(attributes, "error.ftl");
+     } finally {
+     if (connection != null) try{connection.close();} catch(SQLException e){}
+    }}, new FreeMarkerEngine()); 
     
 //XML,get
 get("/api/comments", (req, res) -> {
