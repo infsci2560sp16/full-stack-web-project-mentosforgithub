@@ -10,6 +10,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="signin.js"></script>
     </head>
     <body>
         <div class="head"><h1>Small Lights</h1></div>
@@ -17,8 +19,8 @@ and open the template in the editor.
 		<form>
 			<input type="text" name="username" id="sign_username" placeholder="input your username"><br>
 			<input type="password" name="password" id="sign_password" placeholder="input your password"><br>
-			<button type="submit" id="signin">OK</button>
-			<button type="reset" id="signin_cancel"> Cancel</button>
+			<input type="submit" name="signin" onclick="sign_in()"></input>
+			<button type="reset" name="signin_cancel"> Cancel</button>
 		</form>
         
         <br>
@@ -27,3 +29,4 @@ and open the template in the editor.
         <div class="back_home"><a href="index.html">Click here to back to home page!</a></div>
     </body>
 </html>
+
