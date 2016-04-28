@@ -68,6 +68,35 @@ post("/signin", (req,res)->{
            if (connection != null) try{connection.close();} catch(SQLException e){} 
         }
     });
+//JSON,get
+ get("/addcomment", (req, res) ->
+    {
+      Connection connection = null;
+	  
+	  JSONObject user = new JSONObject(req.body());//Use JSON to convey the message in signin
+      String username = user.getString("username");
+      String comment_text = user.getString("comment");
+	  String grade1 = user.getString("grade");
+	  
+	  int grade = Integer.parseInt(grade1);
+	  
+      Map<String, Object> attributes = new HashMap<>();
+      try{
+      connection = DatabaseUrl.extract().getConnection();
+
+      Statement stmt = connection.createStatement();
+	  String sql = "INSERT INTO Comments (username,comment_text,grade) VALUES ('"+username"','"+comment_text+"','"+grade+"')";
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments (username varchar(50),date datetime DEFAULT GETDATE(),comment_text varchar(500),grade int)");
+	  stmt.executeUpdate(sql);
+	  
+	  return req.body();
+	  }catch (Exception e) {
+     attributes.put("message", "There was an error: " + e);
+     return new ModelAndView(attributes, "error.ftl");
+     } finally {
+     if (connection != null) try{connection.close();} catch(SQLException e){}
+    }}, new FreeMarkerEngine()); 
+    
 //JSON,get,unfinised
  get("/login", (req, res) ->
     {
