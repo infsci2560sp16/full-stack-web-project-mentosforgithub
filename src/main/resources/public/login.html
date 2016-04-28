@@ -10,6 +10,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="login.js"></script>
     </head>
     <body>
         <div class="head"><h1>Small Lights</h1></div>
@@ -17,7 +19,7 @@ and open the template in the editor.
 		<form>
 			<input type="text" name="username" id="login_username" placeholder="input your username"><br>
 			<input type="password" name="password" id="login_password" placeholder="input your password"><br>
-			<button type="submit" id="login">OK</button>
+			<input type="submit" id="login" onclick="log_in()"></input>
 			<button type="reset" id="login_cancel"> Cancel</button>
 		</form>
         
