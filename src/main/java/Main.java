@@ -1,11 +1,24 @@
 import com.google.gson.Gson;
 import org.json.JSONObject;
 
+import freemarker.template.Configuration;  
+import freemarker.template.DefaultObjectWrapper;  
+import freemarker.template.Template; 
+import java.io.BufferedWriter;  
+import java.io.File;  
+import java.io.FileWriter;  
+import java.io.IOException;  
+import java.io.Writer; 
+package com.bijian.study.freemark;  
+
 import com.heroku.sdk.jdbc.DatabaseUrl;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.List; 
+import java.text.*;
+import java.util.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,7 +28,6 @@ import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
 import static spark.Spark.get;
 
-import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class Main {
 
@@ -120,6 +132,43 @@ get("/api/comments", (req, res) -> {
               if (connection != null) try{connection.close();} catch(SQLException e){}
           }
         });
+        
+//ftl restaurants
+try {  
+            String path = new File("").getAbsolutePath();  
+            config.setDirectoryForTemplateLoading(new File(path));  
+            config.setObjectWrapper(new DefaultObjectWrapper());  
+              
+            Template template = config.getTemplate("restaurants.ftl","UTF-8");  
+            //create the template
+            Map root = new HashMap();  
+            List<Comments_Nicky> comments_Nicky = new ArrayList<Comments_Nicky>();  
+            Comments_Nicky n1 = new Comments_Nicky();  
+            n1.setUser("Alex");  
+            n1.setComment("I like this place.");
+			n1.setTime();
+            comments_Nicky.add(n1);  
+			
+            Comments_Nicky n2 = new Comments_Nicky();  
+            n2.setUser("Boris");  
+            n2.setComment("This is a famous restaurant.");  
+            comments_Nicky.add(n2);
+
+			Comments_Nicky n3 = new Comments_Nicky();  
+            n3.setUser("Chang");  
+            n3.setComment("I like the chicken curry here.");  
+            comments_Nicky.add(n3);
+            
+			Comments_Nicky n4 = new Comments_Nicky();  
+            n4.setUser("Donna");  
+            n4.setComment("It's a wonderful restaurant in downtwon.");  
+            comments_Nicky.add(n4);
+			
+            root.put("commentsList", comments_Nicky);  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();}
+            
 //db    
 get("/db", (req, res) -> {
       Connection connection = null;
