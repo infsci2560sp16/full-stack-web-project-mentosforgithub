@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileWriter;  
 import java.io.IOException;  
 import java.io.Writer; 
-package com.bijian.study.freemark;  
+//package com.bijian.study.freemark;  
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 import java.sql.*;
@@ -85,7 +85,7 @@ post("/signin", (req,res)->{
       connection = DatabaseUrl.extract().getConnection();
 
       Statement stmt = connection.createStatement();
-	  String sql = "INSERT INTO Comments (username,comment_text,grade) VALUES ('"+username"','"+comment_text+"','"+grade+"')";
+	  String sql = "INSERT INTO Comments (username,comment_text,grade) VALUES ('"+username+"','"+comment_text+"','"+grade+"')";
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Comments (username varchar(50),date datetime DEFAULT GETDATE(),comment_text varchar(500),grade int)");
 	  stmt.executeUpdate(sql);
 	  
@@ -143,12 +143,12 @@ get("/api/comments", (req, res) -> {
               String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
               xml += "<comments>";//use comments.xsd
               while (rs.next()) {
-              			  xml+= "<comment>"
+              	xml+= "<comment>"
 				  	xml += "<username>"+rs.getString("username")+"</username>";
 				  	xml += "<date>"+rs.getString("date")+"</date>";
 					xml += "<comment_text>"+rs.getString("comment_text")+"</comment_text>";
 					xml += "<grade>"+rs.getString("grade")+"</grade>";
-				  xml+= "</comment>"
+				xml+= "</comment>"
               }
               xml += "</comments>";
               res.type("text/xml");
